@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "author": "Derek King",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": 43.24, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -129.6,
+      "left": 345.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": 307.2,
+      "attrs": { "value": "560" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 109.55,
+      "left": 230.4,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "chip-6n138-optocoupler",
+      "id": "optocoupler",
+      "top": 9.5,
+      "left": 255.48,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "chip-1n914-diode", "id": "diode", "top": -85.38, "left": 254.4, "attrs": {} },
+    {
+      "type": "chip-midi-connector",
+      "id": "midi",
+      "top": -262.49,
+      "left": 260.08,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:1", "midi:4", "green", [ "v-9.6", "h-48" ] ],
+    [ "r1:2", "diode:Cathode-", "green", [ "v18", "h-11.41" ] ],
+    [ "midi:5", "diode:Anode+", "green", [ "v19.2", "h-57.6", "v86.4" ] ],
+    [ "diode:Anode+", "optocoupler:3#-", "green", [ "h-9.6", "v28.8", "h57.6" ] ],
+    [ "optocoupler:2#+", "diode:Cathode-", "green", [ "v-28.8", "h57.6", "v-48" ] ],
+    [ "optocoupler:6#VO", "r2:1", "green", [ "v0" ] ],
+    [ "r4:2", "optocoupler:7#VB", "blue", [ "v0", "h27.6" ] ],
+    [ "esp:3V3", "r2:2", "red", [ "h0.15", "v-28.8", "h345.6", "v124.8" ] ],
+    [ "esp:5V", "optocoupler:8#VCC", "red", [ "h0.15", "v19.2", "h278.4" ] ],
+    [ "esp:5", "r2:1", "green", [ "h0" ] ],
+    [ "esp:GND.3", "r4:1", "black", [ "h0" ] ],
+    [ "esp:GND.3", "optocoupler:5#GND", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}

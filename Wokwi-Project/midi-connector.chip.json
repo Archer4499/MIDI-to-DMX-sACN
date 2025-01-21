@@ -1,0 +1,17 @@
+{
+  "name": "midi-connector",
+  "author": "Derek King",
+  "pins": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "3",
+    "5",
+    "2",
+    "4",
+    "1"
+  ],
+  "controls": []
+}

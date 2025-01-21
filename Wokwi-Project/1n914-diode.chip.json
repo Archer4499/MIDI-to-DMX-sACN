@@ -1,0 +1,11 @@
+{
+  "name": "1n914-diode",
+  "author": "Ailou",
+  "pins": [
+    "Anode+",
+    "",
+    "",
+    "Cathode-"
+  ],
+  "controls": []
+}

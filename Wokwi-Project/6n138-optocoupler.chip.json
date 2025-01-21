@@ -1,0 +1,15 @@
+{
+  "name": "6n138-optocoupler",
+  "author": "Ailou",
+  "pins": [
+    "1#N/C",
+    "2#+",
+    "3#-",
+    "4#N/C",
+    "5#GND",
+    "6#VO",
+    "7#VB",
+    "8#VCC"
+  ],
+  "controls": []
+}
